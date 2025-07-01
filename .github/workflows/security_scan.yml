@@ -1,0 +1,60 @@
+name: Automated Security Scanning
+on: [push, schedule]
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    services:
+      bwapp:
+        image: raesene/bwapp
+        ports:
+          - "80:80"
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # SAST (Semgrep)
+    - name: Run Semgrep
+      uses: returntocorp/semgrep-action@v1
+      with:
+        config: p/owasp-top-ten
+        output_file: sast_report.sarif
+
+    # SCA (DependencyCheck)
+    - name: Dependency Check
+      run: |
+        wget https://github.com/jeremylong/DependencyCheck/releases/download/v8.3.1/dependency-check-8.3.1-release.zip
+        unzip dependency-check-8.3.1-release.zip
+        ./dependency-check/bin/dependency-check.sh --project bwapp --scan . --format SARIF --out ./sca_report.sarif
+
+    # IAC (Checkov)
+    - name: Run Checkov
+      uses: bridgecrewio/checkov-action@v12
+      with:
+        directory: .
+        output_format: sarif
+        output_file: iac_report.sarif
+
+    # DAST (ZAP)
+    - name: OWASP ZAP Scan
+      run: |
+        docker run --network host -v $(pwd):/zap/wrk \
+          owasp/zap2docker-stable zap-baseline.py \
+          -t http://bwapp -r dast_report.html
+
+    # Container Scan (Docker Scout)
+    - name: Docker Scout Analysis
+      run: |
+        docker pull raesene/bwapp
+        docker scout cves raesene/bwapp --format sarif --output docker_report.sarif
+
+    # Upload Reports
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: security-reports
+        path: |
+          *.sarif
+          dast_report.html
+
