@@ -57,4 +57,3 @@ jobs:
         path: |
           *.sarif
           dast_report.html
-
