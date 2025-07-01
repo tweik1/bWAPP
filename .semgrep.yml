@@ -1,0 +1,27 @@
+# .semgrep.yml
+
+# Включение правил из Semgrep Registry (OWASP Top 10, Security Audit и т.д.)
+rules:
+  - id: r2c-security-audit
+    patterns:
+      - pattern: p/r2c-security-audit
+
+# Кастомные правила для bWAPP (локальный файл)
+  - id: custom-bwapp-rules
+    patterns:
+      - pattern: file:custom_rules.yml
+
+# Настройки сканирования
+options:
+  # Игнорировать тестовые файлы и зависимости
+  exclude:
+    - "**/tests/**"
+    - "**/vendor/**"
+    - "**/node_modules/**"
+
+  # Формат вывода (можно изменить на html, json, txt)
+  output: sarif  # Стандартный формат для CI/CD
+
+  # Дополнительные опции
+  verbose: true  # Подробный лог
+  strict: true   # Проверять все правила, даже если есть ошибки

@@ -169,7 +169,7 @@ if(isset($_GET["title"]))
     if(mysql_num_rows($recordset) != 0)
     {
 
-        while($row = mysql_fetch_array($recordset))         
+        while($row = mysql_fetch_array($recordset))
         {
 
             // print_r($row);

@@ -70,7 +70,7 @@ if(!$recordset)
 }
 
 // Writes the entry into a text file
-$line = "'" . date("y/m/d G.i:s", time()) . "', '" . $ip_address . "', '" . xss($user_agent) . "'" . "\r\n";     
+$line = "'" . date("y/m/d G.i:s", time()) . "', '" . $ip_address . "', '" . xss($user_agent) . "'" . "\r\n";
 
 $fp = fopen("logs/visitors.txt", "a");
 fputs($fp, $line, 200);
@@ -115,7 +115,7 @@ if(!$recordset)
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
 
@@ -215,7 +215,7 @@ $link->close();
 
             <option value="0">low</option>
             <option value="1">medium</option>
-            <option value="2">high</option> 
+            <option value="2">high</option>
 
         </select>
 

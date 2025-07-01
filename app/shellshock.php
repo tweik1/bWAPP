@@ -66,7 +66,7 @@ include("selections.php");
             <td><font color="red">Welcome <?php if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);}?></font></td>
 
         </tr>
- 
+
     </table>
 
 </div>
@@ -74,13 +74,13 @@ include("selections.php");
 <div id="main">
 
     <h1>Shellshock Vulnerability (CGI)</h1>
-	
+
     <p>The version of Bash is vulnerable to the Bash/Shellshock bug! (<a href="http://sourceforge.net/projects/bwapp/files/bee-box/" target="_blank">bee-box</a> only)</p>
 
     <p>HINT: attack the referer header, and pwn this box...</p>
 
     <iframe frameborder="0" src="./cgi-bin/shellshock.sh" height="200" width="600" scrolling="no"></iframe>
- 
+
 </div>
 
 <div id="side">

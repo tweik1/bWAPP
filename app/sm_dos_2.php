@@ -101,7 +101,7 @@ include("selections.php");
             req_params = req_params + " <!ENTITY lol9 \"&lol8;&lol8;&lol8;&lol8;&lol8;&lol8;&lol8;&lol8;&lol8;&lol8;\">\n";
             req_params = req_params + "]>\n";
             req_params = req_params + "<reset><login>&lol9;</login><secret>blah</secret></reset>";
-            
+
             var xmlHttp;
             // Code for IE7+, Firefox, Chrome, Opera, Safari
             if(window.XMLHttpRequest)
@@ -116,7 +116,7 @@ include("selections.php");
             xmlHttp.open("POST","xxe-2.php",true);
             xmlHttp.setRequestHeader("Content-type","text/xml; charset=UTF-8");
             xmlHttp.send(req_params);
-            
+
         }
 
     </script>

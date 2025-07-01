@@ -1,0 +1,131 @@
+rules:
+  # 1. SQL Injection Rules
+  - id: sql-injection-concatenation
+    patterns:
+      - pattern: |
+          $sql = "SELECT ..." . $_REQUEST[...] . "...";
+      - pattern: |
+          mysql_query("...".$_GET[...]."...")
+    message: "SQL injection via direct input concatenation"
+    languages: [php]
+    severity: ERROR
+    metadata:
+      cwe: "CWE-89"
+      bwapp-reference: "/sqli_1.php"
+
+  - id: sql-injection-no-prepare
+    patterns:
+      - pattern: mysql_query($sql);
+      - pattern-not: mysql_real_escape_string(...)
+      - pattern-not: prepared_stmt
+    message: "SQL query without prepared statements or escaping"
+    languages: [php]
+    severity: WARNING
+
+  # 2. XSS Rules
+  - id: xss-direct-output
+    patterns:
+      - pattern: |
+          <?= $_GET[...] ?>
+      - pattern: |
+          echo $_POST[...];
+      - pattern-not: htmlspecialchars(...)
+    message: "XSS via direct output of user input"
+    languages: [php]
+    severity: ERROR
+    metadata:
+      cwe: "CWE-79"
+
+  # 3. File Inclusion
+  - id: file-inclusion
+    patterns:
+      - pattern: |
+          include($_GET[...]);
+      - pattern: |
+          require($request_param);
+    message: "File inclusion vulnerability"
+    languages: [php]
+    severity: CRITICAL
+    metadata:
+      bwapp-reference: "/directory_traversal_1.php"
+
+  # 4. Command Injection
+  - id: command-injection
+    patterns:
+      - pattern: |
+          exec($_GET[...]);
+      - pattern: |
+          system($user_input);
+    message: "Command injection vulnerability"
+    languages: [php]
+    severity: CRITICAL
+    metadata:
+      cwe: "CWE-78"
+
+  # 5. Session Security
+  - id: session-fixation
+    patterns:
+      - pattern: |
+          session_start();
+          // No session regeneration
+    message: "Missing session regeneration after login"
+    languages: [php]
+    severity: MEDIUM
+
+  # 6. CSRF Protection
+  - id: missing-csrf-token
+    pattern: |
+      <form method="POST">
+      ...
+      </form>
+      <?php
+      // No CSRF token check
+      if ($_SERVER["REQUEST_METHOD"] == "POST") { ... }
+    message: "Missing CSRF token protection"
+    languages: [php]
+    severity: HIGH
+
+  # 7. Hardcoded Credentials
+  - id: hardcoded-credentials
+    patterns:
+      - pattern: |
+          $password = "...";
+      - pattern: |
+          define('DB_PASSWORD', '...');
+    message: "Hardcoded credentials found"
+    languages: [php]
+    severity: CRITICAL
+
+  # 8. Insecure Cookies
+  - id: insecure-cookie
+    patterns:
+      - pattern: |
+          setcookie(..., ..., 0, ..., ..., false, false);
+    message: "Insecure cookie settings (missing HttpOnly and Secure flags)"
+    languages: [php]
+    severity: MEDIUM
+
+  # 9. Debug Features
+  - id: debug-enabled
+    patterns:
+      - pattern: |
+          error_reporting(E_ALL);
+          ini_set('display_errors', 1);
+    message: "Debug features enabled in production"
+    languages: [php]
+    severity: HIGH
+
+  # 10. Specific bwapp vulnerabilities
+  - id: bwapp-admin-bypass
+    patterns:
+      - pattern: |
+          if ($_SESSION["admin"] == 1) {
+              // Admin access
+          }
+      - pattern-not: |
+          if ($_SESSION["admin"] === 1) {
+    message: "Loose comparison for admin check (type juggling vulnerability)"
+    languages: [php]
+    severity: HIGH
+    metadata:
+      bwapp-reference: "/access_control_1.php"

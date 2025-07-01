@@ -21,36 +21,36 @@ include("security_level_check.php");
 
 switch($_COOKIE["security_level"])
 {
-        
-    case "0" :       
-            
+
+    case "0" :
+
         // Do nothing
-    
+
         break;
-        
-    case "1" :            
-        
-        // Destroys the session        
-        session_destroy();       
-        
+
+    case "1" :
+
+        // Destroys the session
+        session_destroy();
+
         break;
-        
-    case "2" :            
-                       
+
+    case "2" :
+
         // Unsets all of the session variables
         $_SESSION = array();
-        
-        // Destroys the session    
+
+        // Destroys the session
         session_destroy();
-                
+
         break;
-        
+
     default :
 
         // Do nothing
-        
+
         break;
-       
+
 }
 
 // Deletes the cookies

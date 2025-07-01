@@ -33,9 +33,9 @@ if(isset($_POST["form"]) && isset($_SESSION["captcha"]))
     {
 
         $_SESSION["manual_interv"] = 1;
-        
+
         header("Location: sqli_9.php");
-        
+
         exit;
 
     }

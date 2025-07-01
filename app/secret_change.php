@@ -121,7 +121,7 @@ if(isset($_POST["action"]))
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
 

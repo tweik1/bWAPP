@@ -27,7 +27,7 @@ $message = "";
 
 function xmli($data)
 {
-    
+
     if(isset($_COOKIE["security_level"]))
     {
 
@@ -86,7 +86,7 @@ if(isset($_REQUEST["login"]) & isset($_REQUEST["password"]))
     {
 
         $message =  "<p>Welcome <b>" . ucwords($result[0]->login) . "</b>, how are you today?</p><p>Your secret: <b>" . $result[0]->secret . "</b></p>";
- 
+
     }
 
     else

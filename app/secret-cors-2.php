@@ -24,7 +24,7 @@ if(isset($_SERVER["HTTP_ORIGIN"]) and $_SERVER["HTTP_ORIGIN"] == "http://intrane
     header("Access-Control-Allow-Origin: http://intranet.itsecgames.com");
 
 	echo "Wolverine's secret: What's a Magneto?";
-	
+
 }
 
 else

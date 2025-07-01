@@ -93,7 +93,7 @@ function sqli($data)
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
 
@@ -177,7 +177,7 @@ function sqli($data)
                 $db->exec($sql);
 
 		$message = "<font color=\"green\">Your entries were deleted!</font>";
-   
+
 	}
 
         echo "&nbsp;&nbsp;" . $message;
@@ -205,7 +205,7 @@ if(!isset($db))
 {
 
     $db = new PDO("sqlite:".$db_sqlite);
- 
+
 }
 
 // Selects all the records
@@ -326,7 +326,7 @@ $db = null;
 
             <option value="0">low</option>
             <option value="1">medium</option>
-            <option value="2">high</option> 
+            <option value="2">high</option>
 
         </select>
 

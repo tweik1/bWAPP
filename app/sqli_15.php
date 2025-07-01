@@ -175,7 +175,7 @@ if(isset($_REQUEST["title"]))
     </form>
 
     <p>The result will be sent by e-mail...</p>
-    
+
 </div>
 
 <div id="side">

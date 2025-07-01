@@ -44,11 +44,11 @@ if(in_array($_SERVER["REMOTE_ADDR"], $AIM_IPs) or in_array($_SERVER["REMOTE_ADDR
 
 if(!(isset($_SESSION["login"]) && $_SESSION["login"]))
 {
-    
+
     header("Location: login.php");
-    
+
     exit;
-   
+
 }
 
 ?>

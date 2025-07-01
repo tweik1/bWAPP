@@ -60,7 +60,7 @@ if(file_exists($file))
 {
 
     unlink($file);
-      
+
 }
 
 // Deletes the file 'visitors.txt'
@@ -114,7 +114,7 @@ if(!$recordset)
 // Selects the database 'bWAPP'
 mysqli_select_db($link,"bWAPP");
 
-// Drops the table 'users' 
+// Drops the table 'users'
 $sql = "DROP TABLE IF EXISTS users";
 
 $recordset = $link->query($sql);
@@ -131,7 +131,7 @@ $sql = "CREATE TABLE IF NOT EXISTS users (id int(10) NOT NULL AUTO_INCREMENT,log
 $sql.= "email varchar(100) DEFAULT NULL,secret varchar(100) DEFAULT NULL,activation_code varchar(100) DEFAULT NULL,activated tinyint(1) DEFAULT '0',";
 $sql.= "reset_code varchar(100) DEFAULT NULL,admin tinyint(1) DEFAULT '0',PRIMARY KEY (id)) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
 
-$recordset = $link->query($sql);           
+$recordset = $link->query($sql);
 
 if(!$recordset)
 {
@@ -145,7 +145,7 @@ $sql = "INSERT INTO users (login, password, email, secret, activation_code, acti
 $sql.= "('A.I.M.', '6885858486f31043e5839c735d99457f045affd0', 'bwapp-aim@mailinator.com', 'A.I.M. or Authentication Is Missing', NULL, 1, NULL, 1),";
 $sql.= "('bee', '6885858486f31043e5839c735d99457f045affd0', 'bwapp-bee@mailinator.com', 'Any bugs?', NULL, 1, NULL, 1)";
 
-$recordset = $link->query($sql);          
+$recordset = $link->query($sql);
 
 if(!$recordset)
 {

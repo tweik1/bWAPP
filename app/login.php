@@ -184,7 +184,7 @@ if(isset($_POST["form"]))
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
 
         <p><label for="login">Login:</label><br />
-        <input type="text" id="login" name="login" size="20" autocomplete="off"></p> 
+        <input type="text" id="login" name="login" size="20" autocomplete="off"></p>
 
         <p><label for="password">Password:</label><br />
         <input type="password" id="password" name="password" size="20" autocomplete="off"></p>

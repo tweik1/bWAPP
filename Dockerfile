@@ -1,7 +1,21 @@
-FROM tutum/lamp:latest
+FROM php:7.4-apache as builder
 
-RUN rm -rf /app
+RUN apt-get update && \
+    apt-get install -y \
+    git \
+    unzip \
+    && docker-php-ext-install mysqli
 
-COPY  /app /app/
+COPY . /var/www/html/
+RUN chown -R www-data:www-data /var/www/html/
 
-CMD ["/run.sh"]
+FROM php:7.4-apache
+
+RUN docker-php-ext-install mysqli
+COPY --from=builder /var/www/html /var/www/html
+
+EXPOSE 80
+HEALTHCHECK --interval=30s --timeout=3s \
+  CMD curl -f http://localhost/ || exit 1
+
+CMD ["apache2-foreground"]

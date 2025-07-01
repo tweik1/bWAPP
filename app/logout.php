@@ -19,7 +19,7 @@ bWAPP is licensed under a Creative Commons Attribution-NonCommercial-NoDerivativ
 include("security.php");
 include("security_level_check.php");
 
-// Destroys the session 
+// Destroys the session
 $_SESSION = array();
 session_destroy();
 

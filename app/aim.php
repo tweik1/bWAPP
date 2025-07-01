@@ -61,8 +61,8 @@ foreach ($bugs as $key => $value)
     // Debugging
     // echo "key: " . $key;
     // echo " value: " . $bug[0];
-    // echo " filename: " . $bug[1] . "<br />"; 
- 
+    // echo " filename: " . $bug[1] . "<br />";
+
     if(!in_array($bug[1], $AIM_exclusions))
     {
 

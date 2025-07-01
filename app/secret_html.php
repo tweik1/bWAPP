@@ -27,7 +27,7 @@ $login = $_SESSION["login"];
 
 $sql = "SELECT * FROM users WHERE login = '" . $login . "'";
 
-$recordset = $link->query($sql);             
+$recordset = $link->query($sql);
 
 if(!$recordset)
 {
@@ -43,7 +43,7 @@ if($row)
 
     $secret = $row->secret;
 
-    $message = "Your secret: <b>" . $secret . "</b>";          
+    $message = "Your secret: <b>" . $secret . "</b>";
 
 }
 

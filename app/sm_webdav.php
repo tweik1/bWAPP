@@ -78,7 +78,7 @@ include("selections.php");
     <p>The Apache web server has an insecure <a href="../webdav" target="_blank">WebDAV</a> configuration! (<a href="http://sourceforge.net/projects/bwapp/files/bee-box/" target="_blank">bee-box</a> only)</p>
 
     <p>HINT: defacement is possible...</p>
-        
+
     </p>
 
 </div>
@@ -90,7 +90,7 @@ include("selections.php");
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
 
-</div>     
+</div>
 
 <div id="disclaimer">
 

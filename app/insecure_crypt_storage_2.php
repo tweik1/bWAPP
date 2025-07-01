@@ -186,7 +186,7 @@ if(isset($_REQUEST["delete"]))
 
     else
 
-        if($field_empty == true)   
+        if($field_empty == true)
         {
 
     ?>

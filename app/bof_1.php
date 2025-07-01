@@ -113,7 +113,7 @@ function commandi($data)
         <p>
 
         <label for="title">Search for a movie:</label>
-        <input type="text" id="title" name="title" size="25">    
+        <input type="text" id="title" name="title" size="25">
 
         <button type="submit" name="action" value="search">Search</button> &nbsp;&nbsp;(<a href="http://sourceforge.net/projects/bwapp/files/bee-box/" target="_blank">bee-box</a> only)
 

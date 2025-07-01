@@ -65,7 +65,7 @@ if(isset($_POST["form"]))
         }
 
         else
-        {       
+        {
 
             $email = $_POST["email"];
 
@@ -104,8 +104,8 @@ if(isset($_POST["form"]))
             // Debugging
             // echo "e-mail: ".$email;
             // echo "<br />";
-            // echo "SMTP server: ". $debug;   
- 
+            // echo "SMTP server: ". $debug;
+
         }
 
     }
@@ -132,7 +132,7 @@ if(isset($_POST["form"]))
 </head>
 
 <body>
-    
+
 <header>
 
 <h1>bWAPP</h1>
@@ -254,7 +254,7 @@ if(isset($_POST["form"]))
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
 
         <label>Choose your bug:</label><br />
-        
+
         <select name="bug">
 
 <?php

@@ -59,7 +59,7 @@ include("selections.php");
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
             <td><a href="security_level_set.php">Set Security Level</a></td>
-            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>          
+            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>
             <td><font color="#ffb717">Credits</font></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
@@ -154,16 +154,16 @@ include("selections.php");
 // Lists the options from the array 'bugs' (bugs.txt)
 foreach ($bugs as $key => $value)
 {
-    
+
    $bug = explode(",", trim($value));
-   
+
    // Debugging
    // echo "key: " . $key;
    // echo " value: " . $bug[0];
    // echo " filename: " . $bug[1] . "<br />";
 
    echo "<option value='$key'>$bug[0]</option>";
- 
+
 }
 
 ?>

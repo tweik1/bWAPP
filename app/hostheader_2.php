@@ -100,14 +100,14 @@ if(isset($_POST["action"]))
 
             }
 
-            // If the security level is MEDIUM or HIGH            
+            // If the security level is MEDIUM or HIGH
             else
             {
 
                 $server = "itsecgames.com";
 
             }
-            
+
             $sender = $smtp_sender;
 
             $email_enc = urlencode($email);

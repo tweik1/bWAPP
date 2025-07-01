@@ -124,7 +124,7 @@ function sqli($data)
         <label for="title">Search for a movie:</label>
         <input type="text" id="title" name="title" size="25">
 
-        <button type="submit" name="action" value="search">Search</button> &nbsp;&nbsp;(requires the PHP SQLite module) 
+        <button type="submit" name="action" value="search">Search</button> &nbsp;&nbsp;(requires the PHP SQLite module)
 
         </p>
 
@@ -188,7 +188,7 @@ if(isset($_GET["title"]))
         </tr>
 <?php
 
-    }    
+    }
 
     if ($count == 0)
     {

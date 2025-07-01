@@ -78,7 +78,7 @@ include("selections.php");
     <p>The web server is vulnerable to the POODLE attack. (<a href="http://sourceforge.net/projects/bwapp/files/bee-box/" target="_blank">bee-box</a> only)</p>
 
     <p>If disabling SSLv3 is not an option, then consider implementing TLS_FALLBACK_SCSV.</p>
-    
+
     <p>More info: <a href="https://www.openssl.org/~bodo/ssl-poodle.pdf" target="_blank">Exploiting The SSL 3.0 Fallback</a></p>
 
 </div>

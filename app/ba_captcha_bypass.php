@@ -48,7 +48,7 @@ if(isset($_POST["form"]))
 
         }
 
-        else   
+        else
         {
 
             $message = "<font color=\"red\">Incorrect CAPTCHA!</font>";
@@ -110,7 +110,7 @@ if(isset($_POST["form"]))
 </head>
 
 <body>
- 
+
 <header>
 
 <h1>bWAPP</h1>
@@ -161,7 +161,7 @@ if(isset($_POST["form"]))
         <input type="text" id="captcha_user" name="captcha_user" value="" autocomplete="off" /></p>
 
         <button type="submit" name="form" value="submit">Login</button>
-        
+
         &nbsp;&nbsp;&nbsp;<?php echo $message . "\n";?>
 
     </form>
@@ -175,7 +175,7 @@ if(isset($_POST["form"]))
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
 
-</div>     
+</div>
 
 <div id="disclaimer">
 

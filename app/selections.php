@@ -22,8 +22,8 @@ $bugs = file("bugs.txt");
 
 if(isset($_POST["form_bug"]) && isset($_POST["bug"]))
 {
-        
-    $key = $_POST["bug"]; 
+
+    $key = $_POST["bug"];
     $bug = explode(",", trim($bugs[$key]));
 
     // Debugging
@@ -32,14 +32,14 @@ if(isset($_POST["form_bug"]) && isset($_POST["bug"]))
     header("Location: " . $bug[1]);
 
     exit;
-   
+
 }
- 
-if(isset($_POST["form_security_level"]) && isset($_POST["security_level"]))    
+
+if(isset($_POST["form_security_level"]) && isset($_POST["security_level"]))
 {
-    
+
     $security_level_cookie = $_POST["security_level"];
-    
+
     switch($security_level_cookie)
     {
 
@@ -58,7 +58,7 @@ if(isset($_POST["form_security_level"]) && isset($_POST["security_level"]))
             $security_level_cookie = "2";
             break;
 
-        default : 
+        default :
 
             $security_level_cookie = "0";
             break;
@@ -71,16 +71,16 @@ if(isset($_POST["form_security_level"]) && isset($_POST["security_level"]))
         setcookie("security_level", "666", time()+60*60*24*365, "/", "", false, false);
 
     }
-    
-    else        
+
+    else
     {
-      
+
         setcookie("security_level", $security_level_cookie, time()+60*60*24*365, "/", "", false, false);
-        
+
     }
-    
+
     header("Location: " . $_SERVER["SCRIPT_NAME"]);
-    
+
     exit;
 
 }
@@ -90,41 +90,41 @@ if(isset($_COOKIE["security_level"]))
 
     switch($_COOKIE["security_level"])
     {
-        
+
         case "0" :
-            
+
             $security_level = "low";
             break;
-        
+
         case "1" :
-            
+
             $security_level = "medium";
             break;
-        
+
         case "2" :
-            
+
             $security_level = "high";
             break;
-        
+
         case "666" :
-            
+
             $security_level = "666";
             break;
 
-        default : 
+        default :
 
             $security_level = "low";
             break;
 
     }
-    
+
 }
 
 else
 {
-     
+
     $security_level = "not set";
-    
-} 
+
+}
 
 ?>

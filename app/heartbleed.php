@@ -66,7 +66,7 @@ include("selections.php");
             <td><font color="red">Welcome <?php if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);}?></font></td>
 
         </tr>
- 
+
     </table>
 
 </div>

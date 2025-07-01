@@ -112,13 +112,13 @@ else
 <div id="main">
 
     <h1>Host Header Attack (Cache Poisoning)</h1>
-    
+
 <?php
 
 if($_COOKIE["security_level"] != "1" && $_COOKIE["security_level"] != "2")
 {
-    
-    $session_id = session_id();         
+
+    $session_id = session_id();
 
 ?>
     <p>Click <a href="http://<?php echo $_SERVER["HTTP_HOST"]?>/bWAPP/portal.php">here</a> to go back to the portal.</p>

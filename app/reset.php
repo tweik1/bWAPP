@@ -98,7 +98,7 @@ else
         // Deletes the database 'bWAPP'
         $sql = "DROP DATABASE IF EXISTS bWAPP";
 
-        $recordset = $link->query($sql);          
+        $recordset = $link->query($sql);
 
         if(!$recordset)
         {
@@ -110,7 +110,7 @@ else
         // Creates the database 'bWAPP'
         $sql = "CREATE DATABASE IF NOT EXISTS bWAPP";
 
-        $recordset = $link->query($sql);             
+        $recordset = $link->query($sql);
 
         if(!$recordset)
         {
@@ -122,7 +122,7 @@ else
         // Selects the database 'bWAPP'
         mysqli_select_db($link,"bWAPP");
 
-        // Drops the table 'users' 
+        // Drops the table 'users'
         $sql = "DROP TABLE IF EXISTS users";
 
         $recordset = $link->query($sql);
@@ -190,11 +190,11 @@ else
         die("Error: " . $link->error);
 
     }
-    
-    // Drops the table 'visitors' 
+
+    // Drops the table 'visitors'
     $sql = "DROP TABLE IF EXISTS visitors";
 
-    $recordset = $link->query($sql);             
+    $recordset = $link->query($sql);
 
     if(!$recordset)
     {
@@ -207,7 +207,7 @@ else
     $sql = "CREATE TABLE IF NOT EXISTS visitors (id int(10) NOT NULL AUTO_INCREMENT,ip_address varchar(50) DEFAULT NULL,";
     $sql.= "user_agent varchar(500) DEFAULT NULL,date datetime DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
 
-    $recordset = $link->query($sql);             
+    $recordset = $link->query($sql);
 
     if(!$recordset)
     {
@@ -216,7 +216,7 @@ else
 
     }
 
-    // Drops the table 'movies' 
+    // Drops the table 'movies'
     $sql = "DROP TABLE IF EXISTS movies";
 
     $recordset = $link->query($sql);
@@ -297,7 +297,7 @@ else
     $sql.= "('johnny', 'm3ph1st0ph3l3s', 'I\'m the Ghost Rider!'),";
     $sql.= "('seline', 'm00n', 'It wasn\'t the Lycans. It was you.')";
 
-    $recordset = $link->query($sql);         
+    $recordset = $link->query($sql);
 
     if(!$recordset)
     {

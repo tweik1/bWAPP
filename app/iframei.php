@@ -38,7 +38,7 @@ function xss($data)
 
         case "0" :
 
-            $data = no_check($data);      
+            $data = no_check($data);
             break;
 
         case "1" :
@@ -54,7 +54,7 @@ function xss($data)
         default :
 
             $data = no_check($data);
-            break;   
+            break;
 
     }
 

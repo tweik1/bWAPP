@@ -69,7 +69,7 @@ include("selections.php");
 
     </table>
 
-</div> 
+</div>
 
 <div id="main">
 

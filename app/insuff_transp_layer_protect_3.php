@@ -78,7 +78,7 @@ include("selections.php");
     <p>The Lighttpd web server is vulnerable to the BEAST, CRIME and BREACH attacks. (<a href="http://sourceforge.net/projects/bwapp/files/bee-box/" target="_blank">bee-box</a> only)</p>
 
     <p>Configure TLS 1.1 or above, disable SSL and HTTP compression!</p>
-    
+
     <p>HINT: test the SSL connection on port 9443 with the <a href="../evil/o-saft.gz" target="_blank">O-Saft</a> tool...</p>
 
 </div>
