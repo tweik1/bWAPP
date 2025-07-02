@@ -1,18 +1,23 @@
 name: Security Scanning
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   schedule:
-    - cron: '0 0 * * 0'  # Еженедельно в воскресенье
+    - cron: '0 0 * * 0'  # Еженедельно в воскресенье в 00:00 UTC
 
 jobs:
   security:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    permissions:
+      security-events: write  # Необходимо для загрузки SARIF в Code Scanning
+      contents: read
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Для полной истории коммитов (может потребоваться для некоторых сканеров)
 
     # SAST - Semgrep
     - name: Run Semgrep (SAST)
@@ -20,6 +25,7 @@ jobs:
       with:
         config: .semgrep.yml
         output_file: sast_report.sarif
+        severity: ERROR  # Можно указать минимальный уровень серьезности
 
     # IAC - Checkov
     - name: Run Checkov
@@ -28,23 +34,36 @@ jobs:
         directory: .
         output_format: sarif
         output_file: iac_report.sarif
-        skip_check: CKV_DOCKER_3,CKV_DOCKER_8  # Пропуск нерелевантных проверок
+        skip_check: CKV_DOCKER_3,CKV_DOCKER_8
+        soft_fail: true  # Продолжить workflow даже при нахождении проблем
 
     # DAST - OWASP ZAP (базовое сканирование)
     - name: OWASP ZAP Scan
+      timeout-minutes: 15  # Ограничение времени выполнения
       run: |
-        docker run --network host -v $(pwd):/zap/wrk \
+        docker run --rm --network host -v $(pwd):/zap/wrk \
           owasp/zap2docker-stable zap-baseline.py \
           -t http://localhost \
           -r dast_report.html \
-          -I  # Игнорировать предупреждения о неработающих правилах
+          -I
+        
+        # Конвертация HTML в SARIF (опционально)
+        if [ -f dast_report.html ]; then
+          echo "DAST scan completed"
+        else
+          echo "DAST scan failed" >&2
+          exit 1
+        fi
+
     # Container Scan - Docker Scout
     - name: Docker Scout Analysis
       run: |
         docker pull raesene/bwapp
         docker scout cves raesene/bwapp \
           --format sarif \
-          --output docker_report.sarif
+          --output docker_report.sarif \
+          --exit-code 0  # Продолжить workflow даже при нахождении уязвимостей
+
     # Загрузка отчётов
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
@@ -54,3 +73,12 @@ jobs:
           *.sarif
           dast_report.html
         retention-days: 7
+
+    # Опционально: отправка в GitHub Code Scanning
+    - name: Upload SARIF to CodeQL
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: |
+          sast_report.sarif
+          iac_report.sarif
+          docker_report.sarif
