@@ -1,9 +1,8 @@
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+  - repo: https://github.com/returntocorp/semgrep
+    rev: v1.72.0
     hooks:
-      - id: trailing-whitespace
-      - id: mixed-line-ending
-      - id: check-yaml
-      - id: detect-private-key
-      - id: end-of-file-fixer
+      - id: semgrep
+        args: [--config=.semgrep.yml]
+        # Используем легковесную версию без полного клонирования
+        additional_dependencies: [semgrep==1.72.0]
