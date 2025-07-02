@@ -4,5 +4,5 @@ repos:
     hooks:
       - id: semgrep
         args: [--config=.semgrep.yml]
-        # Используем легковесную версию без полного клонирования
+        types: [python, javascript]  # Явное указание
         additional_dependencies: [semgrep==1.72.0]
