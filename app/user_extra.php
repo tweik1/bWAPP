@@ -136,8 +136,8 @@ if(isset($_REQUEST["action"]))
 
                         if($mail_activation == false)
                         {
-                        
-                            $sql = "INSERT INTO users (login, password, email, secret, activated) VALUES ('" . $login . "','" . $password . "','" . $email .  "','" . $secret . "',1)"; 
+
+                            $sql = "INSERT INTO users (login, password, email, secret, activated) VALUES ('" . $login . "','" . $password . "','" . $email .  "','" . $secret . "',1)";
 
                             // Debugging
                             // echo $sql;
@@ -158,7 +158,7 @@ if(isset($_REQUEST["action"]))
                             $message = "<font color=\"green\">User successfully created!</font>";
 
                         }
-                        
+
                         else
                         {
 
@@ -204,7 +204,7 @@ if(isset($_REQUEST["action"]))
                             else
                             {
 
-                                $sql = "INSERT INTO users (login, password, email, secret, activation_code) VALUES ('" . $login . "','" . $password . "','" . $email .  "','" . $secret . "','" . $activation_code . "')"; 
+                                $sql = "INSERT INTO users (login, password, email, secret, activation_code) VALUES ('" . $login . "','" . $password . "','" . $email .  "','" . $secret . "','" . $activation_code . "')";
 
                                 // Debugging
                                 // echo $sql;
@@ -297,7 +297,7 @@ if(isset($_REQUEST["action"]))
 
         </tr>
 
-    </table>   
+    </table>
 
 </div>
 
@@ -312,7 +312,7 @@ if(isset($_REQUEST["action"]))
         <table>
 
         <tr><td>
-  
+
         <p><label for="login">Login:</label><br />
         <input type="text" id="login" name="login"></p>
 
@@ -349,7 +349,7 @@ if(isset($_REQUEST["action"]))
         <input type="text" id="secret" name="secret" size="40"></p>
 
         </td></tr>
-   
+
         <tr><td>
 
         <p><label for="mail_activation">E-mail activation:</label>
@@ -405,7 +405,7 @@ if(isset($_REQUEST["action"]))
 
             <option value="0">low</option>
             <option value="1">medium</option>
-            <option value="2">high</option> 
+            <option value="2">high</option>
 
         </select>
 

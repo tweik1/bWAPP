@@ -49,7 +49,7 @@ switch($_COOKIE["security_level"])
 
 }
 
-if(isset($_POST["form"]))   
+if(isset($_POST["form"]))
 {
 
     if($_POST["login"] == $login && $_POST["password"] == $password)

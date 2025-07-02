@@ -75,7 +75,7 @@ fwrite($handle, $data);
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
 
@@ -87,7 +87,7 @@ fwrite($handle, $data);
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
             <td><a href="security_level_set.php">Set Security Level</a></td>
-            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>            
+            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>
             <td><a href="credits.php">Credits</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
@@ -95,30 +95,30 @@ fwrite($handle, $data);
 
         </tr>
 
-    </table>   
+    </table>
 
-</div> 
+</div>
 
 <div id="main">
 
     <h1>Cross-Domain Policy File (Flash)</h1>
 
     <p>Using an insecure cross-domain policy file could expose this site to various attacks.</p>
-    
+
     <p>Check the cross-domain policy file, and try to the steal the <a href="secret.php" target="_blank">secret</a>...</p>
-    
+
     <p>HINT: <a href="../evil/xdx.php" target="_blank">Flash</a> and Silverlight applications are the source of all evil!</p>
 
 </div>
 
-<div id="side">    
+<div id="side">
 
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
     <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
 
-</div>     
+</div>
 
 <div id="disclaimer">
 
@@ -142,14 +142,14 @@ fwrite($handle, $data);
 
             <option value="0">low</option>
             <option value="1">medium</option>
-            <option value="2">high</option> 
+            <option value="2">high</option>
 
         </select>
 
         <button type="submit" name="form_security_level" value="submit">Set</button>
         <font size="4">Current: <b><?php echo $security_level?></b></font>
 
-    </form>   
+    </form>
 
 </div>
 

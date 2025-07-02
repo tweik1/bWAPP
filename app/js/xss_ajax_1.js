@@ -1,9 +1,9 @@
 // Stores the reference to the XMLHttpRequest object
-var xmlHttp = createXmlHttpRequestObject(); 
+var xmlHttp = createXmlHttpRequestObject();
 
 // Retrieves the XMLHttpRequest object
-function createXmlHttpRequestObject() 
-{	
+function createXmlHttpRequestObject()
+{
     // Stores the reference to the XMLHttpRequest object
     var xmlHttp;
     // If running Internet Explorer 6 or older
@@ -33,11 +33,11 @@ function createXmlHttpRequestObject()
     // Returns the created object or displays an error message
     if(!xmlHttp)
         alert("Error creating the XMLHttpRequest object.");
-    else 
+    else
         return xmlHttp;
 }
 
-// Makes an asynchronous HTTP request using the XMLHttpRequest object 
+// Makes an asynchronous HTTP request using the XMLHttpRequest object
 function process()
 {
     // Proceeds only if the xmlHttp object isn't busy
@@ -46,25 +46,25 @@ function process()
         // Retrieves the movie title typed by the user on the form
         title = encodeURIComponent(document.getElementById("title").value);
         // Executes the 'xss_ajax_1-2.php' page from the server
-        xmlHttp.open("GET", "xss_ajax_1-2.php?title=" + title, true);  
+        xmlHttp.open("GET", "xss_ajax_1-2.php?title=" + title, true);
         // Defines the method to handle server responses
         xmlHttp.onreadystatechange = handleServerResponse;
         // Makes the server request
         xmlHttp.send(null);
     }
     else
-        // If the connection is busy, try again after one second  
+        // If the connection is busy, try again after one second
         setTimeout("process()", 1000);
 }
 
 // Callback function executed when a message is received from the server
-function handleServerResponse() 
+function handleServerResponse()
 {
     // Move forward only if the transaction has completed
-    if(xmlHttp.readyState == 4) 
+    if(xmlHttp.readyState == 4)
     {
         // Status of 200 indicates the transaction completed successfully
-        if(xmlHttp.status == 200) 
+        if(xmlHttp.status == 200)
         {
             // Extracts the XML retrieved from the server
             xmlResponse = xmlHttp.responseXML;
@@ -76,9 +76,9 @@ function handleServerResponse()
             document.getElementById("result").innerHTML = result;
             // Restart sequence
             setTimeout("process()", 1000);
-        } 
+        }
         // A HTTP status different than 200 signals an error
-        else 
+        else
         {
             alert("There was a problem accessing the server: " + xmlHttp.statusText);
         }

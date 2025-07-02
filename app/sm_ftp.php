@@ -67,7 +67,7 @@ include("selections.php");
 
         </tr>
 
-    </table> 
+    </table>
 
 </div>
 

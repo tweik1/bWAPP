@@ -43,7 +43,7 @@ if($_COOKIE["security_level"] != "1" && $_COOKIE["security_level"] != "2")
         $sql = "UPDATE users SET secret = '" . $secret . "' WHERE login = '" . $login . "'";
 
         // Debugging
-        // echo $sql;      
+        // echo $sql;
 
         $recordset = $link->query($sql);
 
@@ -74,7 +74,7 @@ else
     // Disables XML external entities. Doesn't work with older PHP versions!
     // libxml_disable_entity_loader(true);
     $xml = simplexml_load_string($body);
-    
+
     // Debugging
     // print_r($xml);
 
@@ -89,7 +89,7 @@ else
         $sql = "UPDATE users SET secret = '" . $secret . "' WHERE login = '" . $login . "'";
 
         // Debugging
-        // echo $sql;      
+        // echo $sql;
 
         $recordset = $link->query($sql);
 
@@ -107,7 +107,7 @@ else
     else
     {
 
-        $message = "An error occured!"; 
+        $message = "An error occured!";
 
     }
 

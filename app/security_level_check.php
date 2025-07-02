@@ -34,9 +34,9 @@ if(!(isset($_COOKIE["security_level"])) && !(in_array($_SERVER["REMOTE_ADDR"], $
 {
 
     header("Location: security_level_set.php");
-    
+
     exit;
- 
+
 }
 
 ?>

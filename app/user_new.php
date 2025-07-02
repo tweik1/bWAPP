@@ -134,7 +134,7 @@ if(isset($_REQUEST["action"]))
                         if($mail_activation == false)
                         {
 
-                            $sql = "INSERT INTO users (login, password, email, secret, activated) VALUES ('" . $login . "','" . $password . "','" . $email .  "','" . $secret . "',1)"; 
+                            $sql = "INSERT INTO users (login, password, email, secret, activated) VALUES ('" . $login . "','" . $password . "','" . $email .  "','" . $secret . "',1)";
 
                             // Debugging
                             // echo $sql;
@@ -153,14 +153,14 @@ if(isset($_REQUEST["action"]))
                             // printf($link->affected_rows);
 
                             $message = "<font color=\"green\">User successfully created!</font>";
-                        
+
                         }
-                        
+
                         else
                         {
 
                             // 'Activation code' generation
-                            $activation_code = random_string();         
+                            $activation_code = random_string();
                             $activation_code = hash("sha1", $activation_code, false);
 
                             // Debugging
@@ -172,11 +172,11 @@ if(isset($_REQUEST["action"]))
                                 ini_set( "SMTP", $smtp_server);
 
                             //Debugging
-                            // $debug = "true";     
+                            // $debug = "true";
 
                             }
 
-                            // Sends an activation mail to the user                    
+                            // Sends an activation mail to the user
                             $subject = "bWAPP - New User";
                             $server = $_SERVER["HTTP_HOST"];
                             $sender = $smtp_sender;
@@ -201,7 +201,7 @@ if(isset($_REQUEST["action"]))
                             else
                             {
 
-                                $sql = "INSERT INTO users (login, password, email, secret, activation_code) VALUES ('" . $login . "','" . $password . "','" . $email .  "','" . $secret . "','" . $activation_code . "')"; 
+                                $sql = "INSERT INTO users (login, password, email, secret, activation_code) VALUES ('" . $login . "','" . $password . "','" . $email .  "','" . $secret . "','" . $activation_code . "')";
 
                                 // Debugging
                                 // echo $sql;
@@ -267,7 +267,7 @@ if(isset($_REQUEST["action"]))
 </head>
 
 <body>
-    
+
 <header>
 
 <h1>bWAPP</h1>
@@ -292,7 +292,7 @@ if(isset($_REQUEST["action"]))
 
     </table>
 
-</div> 
+</div>
 
 <div id="main">
 
@@ -305,7 +305,7 @@ if(isset($_REQUEST["action"]))
         <table>
 
         <tr><td>
-  
+
         <p><label for="login">Login:</label><br />
         <input type="text" id="login" name="login"></p>
 

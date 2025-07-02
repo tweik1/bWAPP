@@ -49,7 +49,7 @@ function xss($data)
             $data = no_check($data);
             break;
 
-    }       
+    }
 
     return $data;
 
@@ -125,7 +125,7 @@ if(isset($_POST["form"]))
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
             <td><a href="security_level_set.php">Set Security Level</a></td>
-            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>         
+            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>
             <td><a href="credits.php">Credits</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
@@ -133,9 +133,9 @@ if(isset($_POST["form"]))
 
         </tr>
 
-    </table>   
+    </table>
 
-</div> 
+</div>
 
 <div id="main">
 
@@ -151,7 +151,7 @@ if(isset($_POST["form"]))
         <p><label for="lastname">Last name:</label><br />
         <input type="text" id="lastname" name="lastname"></p>
 
-        <button type="submit" name="form" value="submit">Lookup</button>  
+        <button type="submit" name="form" value="submit">Lookup</button>
 
     </form>
 
@@ -183,7 +183,7 @@ if(isset($_POST["form"]))
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
 
-</div>     
+</div>
 
 <div id="disclaimer">
 

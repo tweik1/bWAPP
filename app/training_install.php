@@ -19,9 +19,9 @@ bWAPP is licensed under a Creative Commons Attribution-NonCommercial-NoDerivativ
 ?>
 <!DOCTYPE html>
 <html>
-    
+
 <head>
-        
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <!--<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">-->
@@ -43,7 +43,7 @@ bWAPP is licensed under a Creative Commons Attribution-NonCommercial-NoDerivativ
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
 
@@ -63,14 +63,14 @@ bWAPP is licensed under a Creative Commons Attribution-NonCommercial-NoDerivativ
 </div>
 
 <div id="main">
-  
+
     <h1>Talks & Training</h1>
 
     <p>We are happy to give bWAPP talks and workshops at your security convention or seminar!<br />
-    This year we were at 
-    <a href="http://bsidesorlando.org/2014/malik-mesellem-what-is-bwapp-web-application-penetration-testing-with-bwapp" target="_blank">B-Sides Orlando</a>, 
-    <a href="http://www.infosecurity.be" target="_blank">Infosecurity Belgium</a>, 
-    <a href="http://www.sans.org/event/sans-2014/bonus-sessions/4407" target="_blank">SANS 2014</a>, and the 
+    This year we were at
+    <a href="http://bsidesorlando.org/2014/malik-mesellem-what-is-bwapp-web-application-penetration-testing-with-bwapp" target="_blank">B-Sides Orlando</a>,
+    <a href="http://www.infosecurity.be" target="_blank">Infosecurity Belgium</a>,
+    <a href="http://www.sans.org/event/sans-2014/bonus-sessions/4407" target="_blank">SANS 2014</a>, and the
     <a href="http://trusteddigitalidentity.com/" target="_blank">TDI Symposium</a>.</p>
 
     <p>Interested in hands-on skills training? We offer the following exclusive courses and workshops:
@@ -114,7 +114,7 @@ bWAPP is licensed under a Creative Commons Attribution-NonCommercial-NoDerivativ
     <img src="./images/bee_1.png">
 
 </div>
- 
+
 </body>
 
 </html>

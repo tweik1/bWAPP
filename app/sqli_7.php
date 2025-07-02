@@ -87,7 +87,7 @@ function sqli($data)
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
 
@@ -177,14 +177,14 @@ function sqli($data)
             <td width="100"><b>Date</b></td>
             <td width="445"><b>Entry</b></td>
 
-        </tr> 
+        </tr>
 
 <?php
 
 // Selects all the records
 $sql = "SELECT * FROM blog";
 
-$recordset = $link->query($sql);             
+$recordset = $link->query($sql);
 
 if(!$recordset)
 {
@@ -306,7 +306,7 @@ $link->close();
 
             <option value="0">low</option>
             <option value="1">medium</option>
-            <option value="2">high</option> 
+            <option value="2">high</option>
 
         </select>
 

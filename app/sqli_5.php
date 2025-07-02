@@ -27,26 +27,26 @@ function sqli($data)
 
     switch($_COOKIE["security_level"])
     {
-        
-        case "0" : 
-            
-            $data = no_check($data);           
+
+        case "0" :
+
+            $data = no_check($data);
             break;
-        
+
         case "1" :
-            
+
             $data = sqli_check_1($data);
             break;
-        
-        case "2" :            
-                       
-            $data = sqli_check_2($data);            
+
+        case "2" :
+
+            $data = sqli_check_2($data);
             break;
-        
-        default : 
-            
-            $data = no_check($data);            
-            break;   
+
+        default :
+
+            $data = no_check($data);
+            break;
 
     }
 
@@ -93,7 +93,7 @@ function sqli($data)
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
             <td><a href="security_level_set.php">Set Security Level</a></td>
-            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>     
+            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>
             <td><a href="credits.php">Credits</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
@@ -147,7 +147,7 @@ function sqli($data)
 <?php
 
 if(isset($_REQUEST["title"]))
-{   
+{
 
     // Includes the NuSOAP library
     require_once("soap/nusoap.php");

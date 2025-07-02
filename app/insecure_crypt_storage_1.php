@@ -170,7 +170,7 @@ else
 <div id="bug">
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
- 
+
         <label>Choose your bug:</label><br />
 
         <select name="bug">

@@ -75,8 +75,8 @@ if(isset($_POST["entry_add"]))
 
     }
 
-    else            
-    { 
+    else
+    {
 
         $sql = "INSERT INTO blog (date, entry, owner) VALUES (now(),'" . $entry . "','" . $owner . "')";
 

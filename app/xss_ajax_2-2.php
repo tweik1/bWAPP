@@ -32,14 +32,14 @@ if(isset($_GET["title"]))
 
     if($_COOKIE["security_level"] == "2")
     {
-        
+
         // Generates the JSON output
         header("Content-Type: text/json; charset=utf-8");
-        
+
        // Generates the output depending on the movie title received from the client
         if(in_array(strtoupper($title), $movies))
         {
-       
+
             // Creates the response array
             $movies = array(
                 "movies" => array(
@@ -51,7 +51,7 @@ if(isset($_GET["title"]))
 
         }
 
-        else if(trim($title) == "")       
+        else if(trim($title) == "")
         {
 
             // Creates the response array
@@ -65,7 +65,7 @@ if(isset($_GET["title"]))
 
         }
 
-        else        
+        else
         {
 
             // Creates the response array
@@ -81,11 +81,11 @@ if(isset($_GET["title"]))
 
         // Returns the JSON representation
         // This function is safe
-        echo json_encode($movies); 
+        echo json_encode($movies);
 
     }
 
-    else      
+    else
     {
 
         if($_COOKIE["security_level"] == "1")
@@ -108,11 +108,11 @@ if(isset($_GET["title"]))
 
 }
 
-else 
+else
 {
-    
+
     echo "<font color=\"red\">Try harder :p</font>";
-    
+
 }
 
 // Multiple entries

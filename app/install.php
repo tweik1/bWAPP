@@ -83,7 +83,7 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
 
         }
 
-        // Creates the table 'blog' 
+        // Creates the table 'blog'
         $sql = "CREATE TABLE IF NOT EXISTS blog (id int(10) NOT NULL AUTO_INCREMENT,owner varchar(100) DEFAULT NULL,";
         $sql.= "entry varchar(500) DEFAULT NULL,date datetime DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
 
@@ -100,16 +100,16 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
         $sql = "CREATE TABLE IF NOT EXISTS visitors (id int(10) NOT NULL AUTO_INCREMENT,ip_address varchar(50) DEFAULT NULL,";
         $sql.= "user_agent varchar(500) DEFAULT NULL,date datetime DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
 
-        $recordset = $link->query($sql);             
+        $recordset = $link->query($sql);
 
         if(!$recordset)
         {
 
             die("Error: " . $link->error);
 
-        }      
-        
-        // Creates the table 'movies' 
+        }
+
+        // Creates the table 'movies'
         $sql = "CREATE TABLE IF NOT EXISTS movies (id int(10) NOT NULL AUTO_INCREMENT,title varchar(100) DEFAULT NULL,";
         $sql.= "release_year varchar(100) DEFAULT NULL,genre varchar(100) DEFAULT NULL,main_character varchar(100) DEFAULT NULL,";
         $sql.= "imdb varchar(100) DEFAULT NULL,tickets_stock int(10) DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
@@ -143,12 +143,12 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
             die("Error: " . $link->error);
 
         }
-        
+
         // Creates the 'heroes' table
         $sql = "CREATE TABLE IF NOT EXISTS heroes (id int(10) NOT NULL AUTO_INCREMENT,login varchar(100) DEFAULT NULL,password varchar(100) DEFAULT NULL,secret varchar(100) DEFAULT NULL,";
         $sql.= "PRIMARY KEY (id)) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
 
-        $recordset = $link->query($sql);             
+        $recordset = $link->query($sql);
 
         if(!$recordset)
         {
@@ -246,7 +246,7 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
         {
 
         ?>
- 
+
             <td><font color="#ffb717">Install</font></td>
             <td><a href="info_install.php">Info</a></td>
 			<td><a href="training_install.php">Talks & Training</a></td>
@@ -254,13 +254,13 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
         <?php
 
         }
-  
+
         ?>
         </tr>
 
     </table>
 
-</div> 
+</div>
 
 <div id="main">
 
@@ -269,7 +269,7 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
     <p><?php echo $message?></p>
 
 </div>
-    
+
 <div id="side">
 
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
@@ -277,14 +277,14 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
 
-</div>     
+</div>
 
 <div id="disclaimer">
 
     <p>bWAPP is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img style="vertical-align:middle" src="./images/cc.png"></a> &copy; 2014 MME BVBA / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need an exclusive <a href="http://www.mmebvba.com" target="_blank">training</a>?</p>
 
 </div>
-    
+
 <div id="bee">
 
     <img src="./images/bee_1.png">

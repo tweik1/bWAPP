@@ -22,31 +22,31 @@ include("functions_external.php");
 
 function xss($data)
 {
-         
+
     switch($_COOKIE["security_level"])
     {
-        
+
         case "0" :
-            
-            $data = no_check($data);            
+
+            $data = no_check($data);
             break;
-        
+
         case "1" :
-            
+
             $data = xss_check_4($data);
             break;
-        
-        case "2" : 
-                       
-            $data = xss_check_3($data);            
-            break;
-        
-        default :
-            
-            $data = no_check($data);            
-            break;   
 
-    }       
+        case "2" :
+
+            $data = xss_check_3($data);
+            break;
+
+        default :
+
+            $data = no_check($data);
+            break;
+
+    }
 
     return $data;
 
@@ -83,11 +83,11 @@ if(isset($_GET["title"]))
 
 }
 
-else 
+else
 {
-    
+
     echo "<font color=\"red\">Try harder :p</font>";
-    
+
 }
 
 ?>
