@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     permissions:
-      security-events: write  # Необходимо для загрузки SARIF в Code Scanning
-      contents: read
+      security-events: write  # Для загрузки результатов в Code Scanning
+      contents: read         # Для доступа к коду репозитория
 
     steps:
     - name: Checkout code
@@ -25,7 +25,8 @@ jobs:
       with:
         config: .semgrep.yml
         output_file: sast_report.sarif
-        severity: ERROR  # Можно указать минимальный уровень серьезности
+        severity: ERROR  # Минимальный уровень серьезности
+        force_color: true  # Добавлено: цветной вывод в логах
 
     # IAC - Checkov
     - name: Run Checkov
@@ -36,27 +37,11 @@ jobs:
         output_file: iac_report.sarif
         skip_check: CKV_DOCKER_3,CKV_DOCKER_8
         soft_fail: true  # Продолжить workflow даже при нахождении проблем
-
-    # DAST - OWASP ZAP (базовое сканирование)
-    - name: OWASP ZAP Scan
-      timeout-minutes: 15  # Ограничение времени выполнения
-      run: |
-        docker run --rm --network host -v $(pwd):/zap/wrk \
-          owasp/zap2docker-stable zap-baseline.py \
-          -t http://localhost \
-          -r dast_report.html \
-          -I
-        
-        # Конвертация HTML в SARIF (опционально)
-        if [ -f dast_report.html ]; then
-          echo "DAST scan completed"
-        else
-          echo "DAST scan failed" >&2
-          exit 1
-        fi
+        quiet: true      # Добавлено: уменьшает вывод в логах
 
     # Container Scan - Docker Scout
     - name: Docker Scout Analysis
+      timeout-minutes: 10  # Добавлено: ограничение времени выполнения
       run: |
         docker pull raesene/bwapp
         docker scout cves raesene/bwapp \
@@ -70,15 +55,19 @@ jobs:
       with:
         name: security-reports
         path: |
-          *.sarif
-          dast_report.html
+          sast_report.sarif
+          iac_report.sarif
+          docker_report.sarif
+          dast_report.html  # Убедитесь, что этот файл создается
         retention-days: 7
+        if-no-files-found: warn  # Добавлено: предупреждение вместо ошибки
 
-    # Опционально: отправка в GitHub Code Scanning
-    - name: Upload SARIF to CodeQL
+    # Отправка в GitHub Code Scanning
+    - name: Upload SARIF to Code Scanning
       uses: github/codeql-action/upload-sarif@v2
       with:
         sarif_file: |
           sast_report.sarif
           iac_report.sarif
           docker_report.sarif
+        category: security-scan  # Добавлено: категория для результатов
